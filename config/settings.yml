@@ -1,0 +1,62 @@
+# ------------------------------------------------------------------
+# Dashboard settings. Change things here rather than in the R code.
+# Paths are relative to the seeing-who-we-reach folder.
+# After changing anything under "Data preparation", run prepare_data.R again.
+# ------------------------------------------------------------------
+
+# ---- What people see ---------------------------------------------
+title: "Seeing who we reach"
+subtitle: "Is NHS Talking Therapies reaching everyone in Norfolk and Waveney who could benefit?"
+
+# The area every chart highlights in the highlight colour.
+# code is the Sub-ICB code used by NHS England (e.g. 26A).
+focus_area:
+  code: "26A"
+  name: "Norfolk and Waveney"
+
+# The four headline cards on the Overview page (measure IDs from measures.csv).
+headline_measures: ["M001", "M031", "M192", "M053"]
+
+# The measure used to count "people reached" on the Who we reach page.
+reach_measure: "M031"
+
+# Who we reach names any group whose reach ratio is below this number.
+reach_flag_below: 0.8
+
+# Measures offered on the How they benefit page: these themes, as percentages.
+benefit_themes: ["Outcomes"]
+
+# Groups left out of reach comparisons, because they have no population figure.
+not_known_categories:
+  - "Not stated/Not known/Invalid"
+  - "Invalid Code"
+  - "No code recorded"
+  - "Not known"
+  - "Not stated"
+  - "Unknown"
+
+# ---- Data preparation (used by prepare_data.R) --------------------
+talking_therapies:
+  folder: "data-raw/talking-therapies"
+  file_pattern: "ICB_subICB.*\\.csv$"
+
+reference:
+  boundaries: "data-raw/reference/subicb_2026.geojson"
+  area_lookup: "data-raw/reference/subicb_icb_region_lookup_2026.csv"
+  population: "data-raw/reference/population.csv"
+  population_sources: "data-raw/reference/population_sources.csv"
+  area_names: "config/area_names.csv"
+
+# Files used to find areas similar to the focus area.
+# Each pattern picks one file in the folder by its name.
+area_profile:
+  folder: "data-raw/area-profile"
+  deprivation_pattern: "IoD2025|File_7"
+  rural_pattern: "(?i)rural|RUC"
+  lookup_pattern: "SICBL"
+  number_of_similar_areas: 10
+
+# How much to simplify map boundaries, in metres. Bigger = smaller, faster, rougher.
+map_simplify_metres: 300
+
+output_file: "data/app_data.rds"

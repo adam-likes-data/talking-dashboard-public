@@ -1,0 +1,10 @@
+type,breakdown,source,who
+population,Everyone (no breakdown),"GP registered population, NHS Digital (September 2026)",Adults 18+
+population,Age Group,"GP registered population, NHS Digital (September 2026)",Aged 16+ ('Under 18' = 16-17)
+population,Working Age,"GP registered population, NHS Digital (September 2026)",Aged 16+ ('Under 18' = 16-17)
+population,Gender Identity,"GP registered population, NHS Digital (September 2026)",Adults 18+ by sex (not gender identity)
+population,Ethnic Group,"Census 2021, ONS (via Nomis)",All ages
+population,BME Group,"Census 2021, ONS (via Nomis)",All ages
+population,Religion,"Census 2021, ONS (via Nomis)",All ages
+prevalence,Everyone (no breakdown),"QOF depression register, OHID Fingertips (2024/25)",Adults 18+ on a GP depression register
+population,Sexual Orientation,"Census 2021, ONS (via Nomis)",Aged 16+
